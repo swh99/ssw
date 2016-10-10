@@ -3,9 +3,9 @@
 # Version:1.0.0
 
 FROM centos:7
-MAINTAINER Dubu Qingfeng <1135326346@qq.com>
+MAINTAINER coppy Dubu Qingfeng
 
-ENV REFRESHED_AT 2015-06-05
+ENV REFRESHED_AT 2016-10-10
 
 RUN yum -y update; yum clean all
 RUN yum -y install epel-release; yum clean all
@@ -24,6 +24,6 @@ RUN chmod 755 /usr/bin/start.sh
 
 EXPOSE $SS_SERVER_PORT
 
-#CMD ["sh", "-c", "/start.sh"]
+CMD ["sh", "-c", "/start.sh"]
 
 ENTRYPOINT ["/usr/bin/ssserver"]
