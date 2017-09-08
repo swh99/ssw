@@ -12,9 +12,9 @@ ARG WORK=~
 RUN apk --no-cache add python \
     libsodium \
     wget
+WORKDIR $WORK/shadowsocksr-$BRANCH/shadowsocks
 RUN mkdir -p $WORK && \
     wget -qO- --no-check-certificate https://github.com/shadowsocksr/shadowsocksr/archive/$BRANCH.tar.gz | tar -xzf - -C $WORK
-WORKDIR $WORK/shadowsocksr-$BRANCH/shadowsocks
 
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
