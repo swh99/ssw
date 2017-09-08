@@ -14,7 +14,7 @@ RUN apk --no-cache add python \
     wget
 WORKDIR $WORK/shadowsocksr-$BRANCH/shadowsocks
 RUN mkdir -p $WORK && \
-    wget -qO- --no-check-certificate https://github.com/shadowsocksr/shadowsocksr/archive/$BRANCH.tar.gz | tar -xzf - -C $WORK
+RUN wget -qO- --no-check-certificate https://github.com/shadowsocksr/shadowsocksr/archive/$BRANCH.tar.gz | tar -xzf - -C $WORK
 
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
