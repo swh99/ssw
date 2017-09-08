@@ -7,11 +7,13 @@ ENV SS_METHOD aes-256-cfb
 ENV SS_TIMEOUT 300
 ENV DNS_ADDR 114.114.115.115
 ENV DNS_ADDR_2 8.8.4.4
-ARG BRANCH=manyuser ARG WORK=~ RUN apk --no-cache add python \
+ARG BRANCH=manyuser
+ARG WORK=~
+RUN apk --no-cache add python \
     libsodium \
     wget
 RUN mkdir -p $WORK && \
-RUN wget -qO- --no-check-certificate https://github.com/shadowsocksr/shadowsocksr/archive/$BRANCH.tar.gz | tar -xzf - -C $WORK
+    wget -qO- --no-check-certificate https://github.com/shadowsocksr/shadowsocksr/archive/$BRANCH.tar.gz | tar -xzf - -C $WORK
 WORKDIR $WORK/shadowsocksr-$BRANCH/shadowsocks
 
 ADD start.sh /start.sh
